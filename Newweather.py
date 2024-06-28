@@ -92,16 +92,12 @@ if place:
             plot_bar_chart(dates, temps)
 
         # Additional weather information from current weather
-        sunrise = datetime.utcfromtimestamp(current_weather_data['sys']['sunrise']).strftime('%Y-%m-%d %H:%M:%S')
-        sunset = datetime.utcfromtimestamp(current_weather_data['sys']['sunset']).strftime('%Y-%m-%d %H:%M:%S')
+       
         wind_speed = current_weather_data['wind']['speed']  # Wind speed in m/s
         wind_speed_kmh = wind_speed * 3.6  # Convert m/s to km/h
         humidity = current_weather['humidity']
 
         st.write(f"The current humidity is {humidity}%")
-        st.write(f"Sunrise at: {sunrise}")
-        st.write(f"Sunset at: {sunset}")
-        st.write("Add 2 hours, as local time to Sunrise and Sunset")
         st.write(f"Wind speed: {wind_speed_kmh:.2f} km/h")
 
     except Exception as e:
